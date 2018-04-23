@@ -1,4 +1,4 @@
-﻿namespace PertyInvites.Models
+﻿namespace PartyInvites.Models
 {
     public class GuestResponse
     {

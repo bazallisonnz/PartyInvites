@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PertyInvites.Models;
 using System.Linq;
+using PartyInvites.Models;
 
-namespace PertyInvites.Controllers
+namespace PartyInvites.Controllers
 {
     public class HomeController : Controller
     {
-        private DataContext context;
+        private readonly DataContext context;
         public HomeController(DataContext ctx) => context = ctx;
         public IActionResult Index() => View();
         public IActionResult Respond() => View();
@@ -17,8 +17,7 @@ namespace PertyInvites.Controllers
             context.Responses.Add(response);
             context.SaveChanges();
 
-            return RedirectToAction(nameof(Thanks),
-                new { Name = response.Name, WillAttend = response.WillAttend });
+            return RedirectToAction(nameof(Thanks), new { response.Name, response.WillAttend });
         }
 
         public IActionResult Thanks(GuestResponse response) => View(response);

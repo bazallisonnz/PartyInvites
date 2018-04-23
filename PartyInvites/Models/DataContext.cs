@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace PertyInvites.Models
+namespace PartyInvites.Models
 {
     public class DataContext : DbContext
     {
